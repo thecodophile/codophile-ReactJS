@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Hello React</title>
 </head>
 
@@ -28,31 +29,8 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-    <script>
+    <script src="App.js"></script>
 
-        // const heading = React.createElement("h1", { id: "title", className: "hey" }, "Namaste Everyone!");
-
-        // console.log(heading)
-        // //If we console.log the heading we can see the heading is an object.
-
-        // const root = ReactDOM.createRoot(document.getElementById("root"));
-
-        // // Passing a react element inside the root
-        // root.render(heading);
-
-        //................................................
-        const heading1 = React.createElement("h1", { id: "title1", className: "hey1" }, "Heading1");
-
-        const heading2 = React.createElement("h2", { id: "title2", className: "hey2" }, "Heading2");
-
-        const container = React.createElement("div", { id: "container" }, [heading1, heading2])
-        // in React when we pass multiple children, it should pass inside an array like above.
-
-        const root = ReactDOM.createRoot(document.getElementById("root"));
-
-        root.render(container)
-
-    </script>
 </body>
 
 </html>
