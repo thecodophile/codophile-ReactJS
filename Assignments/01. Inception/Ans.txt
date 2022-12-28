@@ -1,0 +1,37 @@
+1. What is Emmet?
+
+   -> Emmet is a plug in for many popular text editors which greatly improves HTML & CSS workflow.
+   And Emmet does fullfill what they promise, we can use short expressions to generate HTML markup and css.
+
+2. Difference between a Library and Framework?
+
+   -> https://www.freecodecamp.org/news/the-difference-between-a-framework-and-a-library-bd133054023f/
+
+3. What is CDN? Why do we use it?
+
+   -> A CDN is a content delivery network. It is a system of distributed servers that deliver content to a user based on their geographic location. The benefits of using a CDN in React Js are many.
+
+   > CDNs can improve the performance of your website by reducing the latency of content delivery and by providing a higher level of availability.
+   > CDNs can also help to improve the security of your website by providing a distributed denial of service (DDoS) protection.
+
+4. Why is React known as React?
+   
+   -> React was developed for applications (Facebook) that have constantly changing data. Since React is a front-end framework or the “View” in MVC, this means that as the user clicks around and changes the app’s data, the view should “react” or change with those user events. User events being mouse clicks, typing, submitting a form.
+
+5. What is crossorigin in script tag?
+   
+   -> The crossorigin attribute sets the mode of the request to an HTTP CORS Request.
+
+6. What is diference between React and ReactDOM
+
+   -> React is a JavaScript library, designed for building user interfaces.
+      React-DOM is a complimentary library to React which glues React to the browser DOM.
+
+7. What is difference between react.development.js and react.production.js files via CDN?
+
+   -> react.development.js files via CDN are usage for development perpose, and are not suitable for production.
+   where as react.production.js files via CDN are minified and optimized production versions of React
+
+8. What is async and defer?
+
+   -> https://javascript.info/script-async-defer
