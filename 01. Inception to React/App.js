@@ -17,7 +17,12 @@ const heading1 = React.createElement(
 
 const heading2 = React.createElement(
   "h2",
-  { id: "title2", className: "hey2" },
+  {
+    id: "title2",
+    className: "hey2",
+    // and not only id or class name we can  pass any props inside this curly braces.
+    hello: "world",
+  },
   "Heading2"
 );
 
