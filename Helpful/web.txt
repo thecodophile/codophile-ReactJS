@@ -1,0 +1,13 @@
+Create React App website-> https://create-react-app.dev/
+
+npm website -> https://www.npmjs.com/
+
+parcel website -> https://parceljs.org/
+
+to compatible our app for older browser -> https://www.npmjs.com/package/browserslist
+
+There is a awesome website over browserlist -> https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb25z
+
+babel-plugin-transform-remove-console -> https://www.npmjs.com/package/babel-plugin-transform-remove-console
+
+babel website -> https://babeljs.io/
