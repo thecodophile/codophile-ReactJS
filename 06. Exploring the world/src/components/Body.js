@@ -1,6 +1,6 @@
 import { restrautList } from "../constants";
 import RestruntCard from "./RestrauntCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -10,17 +10,27 @@ function filterData(searchText, restaurants) {
 }
 
 const Body = () => {
-  // let searchTxt = "KFC";
-
-  //searchText is a local state variable
-  //setSearchText is use to update the variable
-  const [searchText, setSearchText] = useState(); //to create state variable.
-  //useState returns an array ->[variable name, function to update the variable]
-
-  // const searchClicked = false;
-  // const [searchClicked, setSearchClicked] = useState("false");
-
+  // fetch()
+  // it is not a good place to fetch an api, any time my UI is updated it rerender
+  const [searchText, setSearchText] = useState("");
   const [restaurants, setRestaurants] = useState(restrautList);
+
+  useEffect(() => {
+    // API call
+    getRestaurnts();
+  }, []);
+
+  async function getRestaurnts() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(json);
+    // optional chaining
+    setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+  }
+
+  console.log("Render");
 
   return (
     <>
@@ -34,21 +44,9 @@ const Body = () => {
             setSearchText(e.target.value);
           }}
         />
-        {/* <h2>{searchClicked}</h2> */}
         <button
           className="search-btn"
-          // onClick={(e) => {
-          //   if (searchClicked == "false") {
-          //     setSearchClicked("true");
-          //   } else {
-          //     setSearchClicked("false");
-          //   }
-          // }}
-
           onClick={(e) => {
-            //need to filter the data among the restruntList
-            //the update the restruntlist
-
             const data = filterData(searchText, restaurants);
             setRestaurants(data);
           }}
