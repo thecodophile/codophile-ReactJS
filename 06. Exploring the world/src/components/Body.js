@@ -1,10 +1,11 @@
 import { restrautList } from "../constants";
 import RestruntCard from "./RestrauntCard";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
-    restaurant.data.name.includes(searchText)
+    restaurant?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
   );
   return filterData;
 }
@@ -12,8 +13,9 @@ function filterData(searchText, restaurants) {
 const Body = () => {
   // fetch()
   // it is not a good place to fetch an api, any time my UI is updated it rerender
+  const [allrestaurant, setAllRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [restaurants, setRestaurants] = useState(restrautList);
+  const [filteredrestaurants, setfilteredRestaurant] = useState([]);
 
   useEffect(() => {
     // API call
@@ -27,12 +29,22 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
     // optional chaining
-    setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    setfilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
   }
 
   console.log("Render");
 
-  return (
+  // Conditional rendering
+  // if restaurant is empty => shimmer UI
+  // if restaurant has data => actual data UI
+
+  //not render component(Early retrun)
+  if (!allrestaurant) return null;
+
+  return allrestaurant.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="search-container">
         <input
@@ -47,17 +59,21 @@ const Body = () => {
         <button
           className="search-btn"
           onClick={(e) => {
-            const data = filterData(searchText, restaurants);
-            setRestaurants(data);
+            const data = filterData(searchText, allrestaurant);
+            setfilteredRestaurant(data);
           }}
         >
           Search
         </button>
       </div>
       <div className="restaurant-list">
-        {restaurants.map((restraut) => {
-          return <RestruntCard {...restraut.data} key={restraut.data.id} />;
-        })}
+        {filteredrestaurants.length === 0 ? (
+          <h2>No Restaurnat match your Filter</h2>
+        ) : (
+          filteredrestaurants.map((restraut) => {
+            return <RestruntCard {...restraut.data} key={restraut.data.id} />;
+          })
+        )}
       </div>
     </>
   );

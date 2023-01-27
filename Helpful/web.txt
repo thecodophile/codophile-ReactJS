@@ -11,3 +11,6 @@ There is a awesome website over browserlist -> https://browserslist.dev/?q=bGFzd
 babel-plugin-transform-remove-console -> https://www.npmjs.com/package/babel-plugin-transform-remove-console
 
 babel website -> https://babeljs.io/
+
+Download CORS Chrome extension 
+read about shimmer design.

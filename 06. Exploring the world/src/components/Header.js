@@ -1,5 +1,10 @@
 import { useState } from "react";
 // we can export like this..
+
+const logedInUser = () => {
+  return true;
+};
+
 export const Title = () => {
   return (
     <a href="/">
@@ -17,6 +22,9 @@ const HeaderComponent = () => {
 
   // console.log("rerender");
   //React re-render the whole component when the state variable will change .
+
+  const [isLogedIn, setIsLogedIn] = useState(false);
+
   return (
     <div className="header">
       <Title />
@@ -38,6 +46,11 @@ const HeaderComponent = () => {
           <li>Cart</li>
         </ul>
       </div>
+      {isLogedIn ? (
+        <button onClick={() => setIsLogedIn(false)}>Logout</button>
+      ) : (
+        <button onClick={() => setIsLogedIn(true)}>Login</button>
+      )}
     </div>
   );
 };
