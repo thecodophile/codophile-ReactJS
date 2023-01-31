@@ -1,5 +1,6 @@
 import { useState } from "react";
-// we can export like this..
+import Logo from "../assets/foodvilla.jpg";
+import { Link } from "react-router-dom";
 
 const logedInUser = () => {
   return true;
@@ -10,7 +11,8 @@ export const Title = () => {
     <a href="/">
       <img
         className="logo"
-        src="https://yt3.ggpht.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"
+        // src="https://yt3.ggpht.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"
+        src={Logo}
         alt="logo image"
       />
     </a>
@@ -40,8 +42,12 @@ const HeaderComponent = () => {
 
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/about">
+            <li>About</li>
+          </Link>
           <li>Contact</li>
           <li>Cart</li>
         </ul>

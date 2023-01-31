@@ -11,14 +11,11 @@ function filterData(searchText, restaurants) {
 }
 
 const Body = () => {
-  // fetch()
-  // it is not a good place to fetch an api, any time my UI is updated it rerender
   const [allrestaurant, setAllRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredrestaurants, setfilteredRestaurant] = useState([]);
 
   useEffect(() => {
-    // API call
     getRestaurnts();
   }, []);
 
@@ -28,18 +25,12 @@ const Body = () => {
     );
     const json = await data.json();
     console.log(json);
-    // optional chaining
     setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
     setfilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
   }
 
   console.log("Render");
 
-  // Conditional rendering
-  // if restaurant is empty => shimmer UI
-  // if restaurant has data => actual data UI
-
-  //not render component(Early retrun)
   if (!allrestaurant) return null;
 
   return allrestaurant.length === 0 ? (

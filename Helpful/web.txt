@@ -14,3 +14,8 @@ babel website -> https://babeljs.io/
 
 Download CORS Chrome extension 
 read about shimmer design.
+
+npm package for Shimmer UI -> https://www.npmjs.com/package/react-shimmer
+npm package for building complex Form-> Formik -> https://formik.org/
+
+react router website -> https://reactrouter.com/en/main
