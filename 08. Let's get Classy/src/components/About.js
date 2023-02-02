@@ -17,16 +17,16 @@ const About = () => {
 class AboutClass extends Component {
   constructor(props) {
     super(props);
-    console.log("Parent-Constructor");
+    // console.log("Parent-Constructor");
   }
 
   componentDidMount() {
     //Best place to make a api call
-    console.log("Parent-compnentDidMount");
+    // console.log("Parent-compnentDidMount");
   }
 
   render() {
-    console.log("Parent-render");
+    // console.log("Parent-render");
     return (
       <div>
         <h1>About Us Page</h1>
@@ -35,7 +35,6 @@ class AboutClass extends Component {
         </p>
         <Outlet />
         <ProfileClass name="First Child" age="10" />
-        <ProfileClass name="Second Child" age="20" />
       </div>
     );
   }
@@ -57,21 +56,3 @@ export default AboutClass;
  *
  *
  */
-
-// this.state={
-//   userInfo:{
-//     name:"Dummy Name",
-//     location: "Dummy Loation",
-//   }
-// }
-
-// async componentDidMount() {
-//   //Best place to make a api call
-//   const data = await fetch("https://api.github.com/users/thecodophile")
-//   const json = await data.json();
-// this.setState({
-// userInfo:json,
-// })
-
-//   console.log("Parent-compnentDidMount");
-// }

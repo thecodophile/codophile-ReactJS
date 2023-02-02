@@ -5,42 +5,62 @@ class Profile extends React.Component {
     super(props);
     //Create State
     this.state = {
-      count: 0,
-      count2: 1,
+      userInfo: {
+        name: "Dummy Name",
+        location: "Dummy Loation",
+      },
     };
     console.log("Child-constructor" + this.props.name);
   }
 
-  componentDidMount() {
-    //this is the best palce to make an api call inside classbase components
+  async componentDidMount() {
+    //Best place to make a api call
+    const data = await fetch("https://api.github.com/users/thecodophile");
+    const json = await data.json();
+
+    console.log(json);
+
+    this.setState({
+      userInfo: json,
+    });
     console.log("Child-componentDidMount" + this.props.name);
   }
 
+  componentDidUpdate() {
+    console.log("Old component Update");
+  }
+
+  componentWillUnmount() {
+    console.log("ComponentWillUnmount");
+  }
+
   render() {
-    // destructuring
-    const { count, count2 } = this.state;
-
     console.log("Child-Render" + this.props.name);
-
+    //I just do destructuring and optional chaining
+    const { avatar_url, name, location } = this?.state?.userInfo;
     return (
       <div>
         <h1>Profile Class Component</h1>
-        <p>Name: {this.props.name}</p>
-        <p>Age: {this.props.age}</p>
-        <p>Count:{count}</p>
-        <p>Count2:{count2}</p>
-        <button
-          onClick={() => {
-            this.setState({
-              count: 1,
-              count2: 2,
-            });
-          }}
-        >
-          setCount
-        </button>
+        <img src={avatar_url} />
+        <p>Name: {name}</p>
+        <p>Location: {location}</p>
       </div>
     );
   }
 }
 export default Profile;
+
+/**
+ * Render phase***************
+ * Parent Constructor
+ * parent Render
+ * Child Constructor
+ * Child Render
+ *
+ * Commit Phase***************
+ * DOM is updated API call
+ * json loged
+ * Child compomentDidMount
+ * Parent componentDidMount
+ *
+ */
