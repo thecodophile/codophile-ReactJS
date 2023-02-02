@@ -19,3 +19,8 @@ npm package for Shimmer UI -> https://www.npmjs.com/package/react-shimmer
 npm package for building complex Form-> Formik -> https://formik.org/
 
 react router website -> https://reactrouter.com/en/main
+
+React Life Cycle method diagram -> https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+Their is a github api to fetch user details -> https://api.github.com/users/USERNAME
+    here replace the USERNAME part to your github username it will fetch some data about your github account
