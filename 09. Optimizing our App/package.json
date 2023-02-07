@@ -1,0 +1,26 @@
+{
+  "name": "02.-igniting-our-app",
+  "version": "1.0.0",
+  "description": "This is a live React course.",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "author": "Somnath Dey",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.20.7",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0"
+  },
+  "browserslist": [
+    "last 10 version"
+  ]
+}
