@@ -35,14 +35,19 @@ const Body = () => {
 
   if (!allrestaurant) return null;
 
+  // const searchbtn = {
+  //   backgroundColor: "till",
+  //   color: "white",
+  // };
+
   return allrestaurant.length === 0 ? (
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="p-2 bg-pink-50 my-2 ">
         <input
           type="text"
-          className="search-input"
+          className="focus:bg-green-50 p-2 m-2"
           placeholder="Search"
           value={searchText}
           onChange={(e) => {
@@ -50,7 +55,13 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          // className="search-btn"
+          // style={searchbtn}
+          // style={{
+          //   backgroundColor: "teal",
+          //   color: "black",
+          // }}
+          className="text-xl text-white bg-purple-500 hover:bg-purple-700 hover:first-letter:font-bold  p-1 m-1 rounded "
           onClick={(e) => {
             const data = filterData(searchText, allrestaurant);
             setfilteredRestaurant(data);
@@ -59,7 +70,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restaurant-list">
+      <div className="flex flex-wrap">
         {filteredrestaurants.length === 0 ? (
           <h2>No Restaurnat match your Filter</h2>
         ) : (
