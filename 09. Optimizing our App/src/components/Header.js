@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Logo from "../assets/foodvilla.jpg";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const logedInUser = () => {
   return true;
@@ -26,6 +27,7 @@ const HeaderComponent = () => {
   //React re-render the whole component when the state variable will change .
 
   const [isLogedIn, setIsLogedIn] = useState(false);
+  const isOnline = useOnline();
 
   return (
     <div className="header">
@@ -51,9 +53,13 @@ const HeaderComponent = () => {
           <Link to="/contact">
             <li>Contact</li>
           </Link>
+          <Link to="/instamart">
+            <li>Instamart</li>
+          </Link>
           <li>Cart</li>
         </ul>
       </div>
+      <h2>{isOnline ? "💚" : "🔴"}</h2>
       {isLogedIn ? (
         <button onClick={() => setIsLogedIn(false)}>Logout</button>
       ) : (

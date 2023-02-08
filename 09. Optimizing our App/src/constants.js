@@ -732,3 +732,6 @@ export const restrautList = [
     subtype: "basic",
   },
 ];
+
+export const FETCH_MENU_URL =
+  "https://www.swiggy.com/dapi/menu/v4/full?lat=22.572646&lng=88.36389500000001&menuId=";
