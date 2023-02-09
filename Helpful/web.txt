@@ -24,3 +24,7 @@ React Life Cycle method diagram -> https://projects.wojtekmaj.pl/react-lifecycle
 
 Their is a github api to fetch user details (search github user API)-> https://api.github.com/users/USERNAME
     here replace the USERNAME part to your github username it will fetch some data about your github account
+
+
+
+Download React Dev Tools Chrome extension.
