@@ -12,6 +12,8 @@ import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 // import Instamart from "./components/Instamart";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 // Chunking
 // Code Spliting
@@ -30,7 +32,7 @@ const AppLayout = () => {
   });
 
   return (
-    <>
+    <Provider store={store}>
       <UserContext.Provider
         value={{
           user: user,
@@ -41,7 +43,7 @@ const AppLayout = () => {
         <Outlet />
         <Footer />
       </UserContext.Provider>
-    </>
+    </Provider>
   );
 };
 
