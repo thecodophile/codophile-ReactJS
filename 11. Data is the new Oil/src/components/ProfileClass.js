@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -41,6 +42,11 @@ class Profile extends React.Component {
     return (
       <div>
         <h1>Profile Class Component</h1>
+
+        <UserContext.Consumer>
+          {({ user }) => <h4 className="font-bold text-xl">{user.name}</h4>}
+        </UserContext.Consumer>
+
         <img src={avatar_url} />
         <p>Name: {name}</p>
         <p>Location: {location}</p>
