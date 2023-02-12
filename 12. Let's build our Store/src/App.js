@@ -14,6 +14,7 @@ import UserContext from "./utils/UserContext";
 // import Instamart from "./components/Instamart";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import Cart from "./components/Cart";
 
 // Chunking
 // Code Spliting
@@ -83,6 +84,10 @@ const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

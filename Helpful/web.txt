@@ -30,3 +30,5 @@ Their is a github api to fetch user details (search github user API)-> https://a
 Download React Dev Tools Chrome extension.
 
 redux & redux toolkit website -> https://redux.js.org/
+
+Download redux dev tools
