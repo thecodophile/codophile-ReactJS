@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../constants";
 import useRestaurant from "../utils/useRestaurant";
 import Shimmer from "./Shimmer";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -10,6 +12,12 @@ const RestaurantMenu = () => {
 
   //creating custom hook
   const restaurant = useRestaurant(resId);
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = () => {
+    dispatch(addItem("Grapes"));
+  };
 
   return !restaurant ? (
     <Shimmer />
@@ -23,6 +31,14 @@ const RestaurantMenu = () => {
         <h3>{restaurant?.city}</h3>
         <h3>{restaurant?.avgRating} Stars</h3>
         <h3>{restaurant?.costForTwoMsg}</h3>
+      </div>
+      <div>
+        <button
+          className="bg-green-300 p-2 m-2"
+          onClick={() => handleAddItem()}
+        >
+          Add Item
+        </button>
       </div>
       <div>
         <h2>Menu</h2>

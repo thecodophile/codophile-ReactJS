@@ -3,6 +3,7 @@ import Logo from "../assets/foodvilla.jpg";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 export const Title = () => {
   return (
@@ -17,6 +18,8 @@ const HeaderComponent = () => {
   const isOnline = useOnline();
 
   const { user } = useContext(UserContext);
+
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="flex justify-between items-center bg-rose-200 shadow-lg">
@@ -36,7 +39,7 @@ const HeaderComponent = () => {
           <li className="px-2">
             <Link to="/instamart">Instamart</Link>
           </li>
-          <li className="px-2">Cart</li>
+          <li className="px-2">Cart- {cartItems.length} items</li>
         </ul>
       </div>
       <h2>{isOnline ? "🟢" : "🔴"}</h2>
